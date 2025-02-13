@@ -17,6 +17,8 @@ jobs:
       - name: Replace Placeholders
         uses: LSVH/gha-replace-placeholders@v1
         with:
+          include: |
+            cv.tex
           placeholders: |
             PLACEHOLDER_GITHUB_COMMIT_SHORT=${{ steps.vars.outputs.sha_short }}
             PLACEHOLDER_GITHUB_COMMIT_LINK=github.com/martinjurran/martin-jurran-org-cv/commit/${{ github.sha }}
