@@ -124,7 +124,7 @@
 
 \newcommand{\footercontent}{%
 \centering \motivationalstatement {
-   \centering \color{gray} Last update: Commit \@commitshort. \href{\@repolink}{See changes on GitHub.}%
+   \centering \color{gray} This CV is open source. Last update: Commit \@commitshort. \href{\@repolink}{See changes on GitHub.}%
   }%
 }
 
