@@ -1,4 +1,4 @@
-% Created by MMartin Jurran
+% Created by Martin Jurran
 % this is inspired by Murat Can Karacabey's Awesome CV 
 \author{Martin Jurran}
 \RequirePackage[dvipsnames]{xcolor} % moved here I guess article class causes option clash with xcolor if used after loading the class
@@ -127,7 +127,7 @@
 }
 
 \newcommand\createskill[2]{%
-    \textbf{#1} & #2
+    \textbf{#1} #2
 }
 
 \newcommand\createskills[1]{%
@@ -139,6 +139,3 @@
     \end{tabular}
 }
 }
-
-
-
