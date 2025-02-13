@@ -11,6 +11,15 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v4
+      - name: Set outputs
+        id: vars
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      - name: Replace Placeholders
+        uses: LSVH/gha-replace-placeholders@v1
+        with:
+          placeholders: |
+            PLACEHOLDER_GITHUB_COMMIT_SHORT=${{ steps.vars.outputs.sha_short }}
+            PLACEHOLDER_GITHUB_COMMIT_LINK=github.com/martinjurran/martin-jurran-org-cv/commit/${{ github.sha }}
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
