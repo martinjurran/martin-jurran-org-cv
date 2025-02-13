@@ -14,9 +14,23 @@ jobs:
         with:
           root_file: cv.tex
           latexmk_use_xelatex: true
-      - uses: actions/checkout@v3
-      - name: Upload Release Asset
+      - name: Release
+        id: release
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run:
-          gh release create ${{ github. run_number }} cv.pdf
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }} ${{ github.event.head_commit.message }}
+          draft: false
+          prerelease: false
+      - name: Upload 
+        id: upload
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./cv.pdf
+          asset_name: cv.pdf
+          asset_content_type: pdf
