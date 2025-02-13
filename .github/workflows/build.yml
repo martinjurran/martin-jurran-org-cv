@@ -20,5 +20,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           name: Release V${{ github.run_id }} (${{ github.event.head_commit.message }})
-          tag_name: ${{ github.sha }}
+          tag_name: Commit_${{ github.sha }}
           files: cv.pdf
