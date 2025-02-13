@@ -1,4 +1,4 @@
-% Created by Martin Jurran
+% Created by MMartin Jurran
 % this is inspired by Murat Can Karacabey's Awesome CV 
 \author{Martin Jurran}
 \RequirePackage[dvipsnames]{xcolor} % moved here I guess article class causes option clash with xcolor if used after loading the class
@@ -19,9 +19,11 @@
 \RequirePackage{lipsum}
 \RequirePackage{array}
 \RequirePackage{multicol}
+\RequirePackage{eso-pic}
 \pagestyle{empty}
 
 \usepackage{comment}
+\usepackage{eso-pic}
 
 %Setup
 \newcommand*{\setname}[2]{\def\@firstname{#1}\def\@lastname{#2}}
@@ -34,6 +36,8 @@
 \newcommand*{\setlinkedinaccount}[1]{\def\@linkedinaccount{#1}}
 \newcommand*{\setwebsite}[1]{\def\@website{#1}}
 \newcommand*{\setgithubaccount}[1]{\def\@githubaccount{#1}}
+\newcommand*{\setcommitshort}[1]{\def\@commitshort{#1}}
+\newcommand*{\setrepolink}[1]{\def\@repolink{#1}}
 
 \hypersetup{
     colorlinks=true,
@@ -117,6 +121,14 @@
       \end{minipage}% 
   }%
 }
+
+\newcommand{\footercontent}{%
+\centering \motivationalstatement {
+   \centering \color{gray} Last update: Commit \@commitshort. \href{\@repolink}{See changes on GitHub.}%
+  }%
+}
+
+
 
 \newcommand{\explanationdetail}[1]{%
     \indent \indent \begin{minipage}{0.87\linewidth} \footnotesize #1 \end{minipage} \\[0.1cm]
