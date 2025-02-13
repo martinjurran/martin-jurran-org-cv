@@ -14,8 +14,9 @@ jobs:
         with:
           root_file: cv.tex
           latexmk_use_xelatex: true
-      - name: Upload PDF file
-        uses: actions/upload-artifact@v4
-        with:
-          name: PDF
-          path: cv.pdf
+            - uses: actions/checkout@v3
+      - name: Upload Release Asset
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run:
+          gh release upload <release_tag> cv.pdf
