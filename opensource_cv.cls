@@ -1,4 +1,4 @@
-% Created by MMartin Jurran
+% Created by Martin Jurran
 % this is inspired by Murat Can Karacabey's Awesome CV 
 \author{Martin Jurran}
 \RequirePackage[dvipsnames]{xcolor} % moved here I guess article class causes option clash with xcolor if used after loading the class
@@ -67,7 +67,7 @@
 
 \newcommand{\contact}{%
         % {\small \@address  \cps \@citizenship \\ \@mobile \cps \@mail% %%OLD
-        {\small \@address \ \cpshalf \href{mailto:\@mail}{\@mail} %
+        {\small \@address \ \cpshalf \href{mailto:\@mail}{\@mail} \ \cpshalf \href{tel:\@mobile}{\@mobile}  %
         \\%
         \websiteview \cpshalf  \githubview \cpshalf \linkedinview \\ 
         } % 
